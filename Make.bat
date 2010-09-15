@@ -1,6 +1,6 @@
-del /S/Q build\*
-rmdir /S/Q build
-mkdir build
-mkdir build\bin
-javac -d build\bin -sourcepath source\ source\minesolver\MineSolverApp.java
-jar cfe build\MineSweeperWhiz.jar minesolver.MineSolverApp -C build\bin .
+del /S/Q Build\*
+rmdir /S/Q Build
+mkdir Build
+mkdir Build\bin
+javac -d Build\bin -sourcepath Source\ Source\minesolver\MineSolverApp.java
+jar cfe Build\MineSweeperWhiz.jar minesolver.MineSolverApp -C Build\bin .
