@@ -1,4 +1,4 @@
-package minesolver.ui;
+package minesweeperwhiz.ui;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -7,8 +7,8 @@ import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
 
-import minesolver.MineSolverParameters;
-import minesolver.data.*;
+import minesweeperwhiz.MineSweeperWhizParameters;
+import minesweeperwhiz.data.*;
 
 public class UICell extends JButton implements MouseListener {
 	private static final long serialVersionUID = 1L;
@@ -56,7 +56,7 @@ public class UICell extends JButton implements MouseListener {
 				setBackground(Color.RED);
 			}
 			
-			if (MineSolverParameters.getInstance().showMinesCheat) {
+			if (MineSweeperWhizParameters.getInstance().showMinesCheat) {
 				setText("M");
 			}
 		}
@@ -112,7 +112,7 @@ public class UICell extends JButton implements MouseListener {
 					b.uncoverSatisfiedSurroundingCells(cell.getX(), cell.getY());
 				}
 			}
-			UIMineSolverApp.getInstance().refresh(false, cell.getBoard());
+			UIMineSweeperWhizApp.getInstance().refresh(false, cell.getBoard());
 		}
 	}
 

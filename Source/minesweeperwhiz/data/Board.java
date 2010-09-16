@@ -1,12 +1,12 @@
-package minesolver.data;
+package minesweeperwhiz.data;
 
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
 
-import minesolver.GameStateCallback;
-import minesolver.MineSolverParameters;
+import minesweeperwhiz.GameStateCallback;
+import minesweeperwhiz.MineSweeperWhizParameters;
 
 public class Board {
 
@@ -55,7 +55,7 @@ public class Board {
 	/////////////////////////////////////////////////////////////////
 
 	public Board(GameStateCallback callback) {
-		MineSolverParameters params = MineSolverParameters.getInstance();
+		MineSweeperWhizParameters params = MineSweeperWhizParameters.getInstance();
 		int seed = params.boardSeed;
 		System.out.println("params.boardSeed=" + seed + ";");
 		rand = new Random(seed);

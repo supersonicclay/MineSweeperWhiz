@@ -1,14 +1,14 @@
-package minesolver.ui;
+package minesweeperwhiz.ui;
 
 import java.awt.BorderLayout;
 
 import javax.swing.JFrame;
 import javax.swing.JProgressBar;
 
-import minesolver.MineSolverParameters;
-import minesolver.data.Board;
+import minesweeperwhiz.MineSweeperWhizParameters;
+import minesweeperwhiz.data.Board;
 
-public class UIMineSolverApp extends JFrame {
+public class UIMineSweeperWhizApp extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	private UIBoard uiBoard;
@@ -16,18 +16,18 @@ public class UIMineSolverApp extends JFrame {
 	private UIMineTotals uiMineTotals;
 	private JProgressBar progressBar;
 
-	private static UIMineSolverApp instance = null;
+	private static UIMineSweeperWhizApp instance = null;
 
-	public static UIMineSolverApp getInstance() {
+	public static UIMineSweeperWhizApp getInstance() {
 		if (instance == null) {
-			instance = new UIMineSolverApp();
+			instance = new UIMineSweeperWhizApp();
 		}
 		return instance;
 	}
 
-	private UIMineSolverApp() {
+	private UIMineSweeperWhizApp() {
 
-		if (MineSolverParameters.getInstance().showUI) {
+		if (MineSweeperWhizParameters.getInstance().showUI) {
 			uiGameButton = new UIGameButton();
 			getContentPane().add(uiGameButton, BorderLayout.NORTH);
 
@@ -36,6 +36,8 @@ public class UIMineSolverApp extends JFrame {
 			
 			uiMineTotals = new UIMineTotals();
 			getContentPane().add(uiMineTotals, BorderLayout.SOUTH);
+			
+			setTitle("Mine Sweeper Whiz");
 			
 			setVisible(true);
 		}
@@ -50,7 +52,7 @@ public class UIMineSolverApp extends JFrame {
 	}
 
 	public void refresh(boolean newGame, Board board) {
-		MineSolverParameters params = MineSolverParameters.getInstance();
+		MineSweeperWhizParameters params = MineSweeperWhizParameters.getInstance();
 		if (params.showUI) {
 			if (newGame) {
 				setSize(params.windowWidth, params.windowHeight);
@@ -64,7 +66,7 @@ public class UIMineSolverApp extends JFrame {
 	
 	public void updateProgress(int gamesPlayed) {
 		if (progressBar != null) {
-			progressBar.setMaximum(MineSolverParameters.getInstance().testRuns);
+			progressBar.setMaximum(MineSweeperWhizParameters.getInstance().testRuns);
 			progressBar.setValue(gamesPlayed);
 		}
 	}

@@ -1,8 +1,8 @@
-package minesolver.solver;
+package minesweeperwhiz.solver;
 
-import minesolver.MineSolverParameters;
-import minesolver.data.*;
-import minesolver.ui.UIMineSolverApp;
+import minesweeperwhiz.MineSweeperWhizParameters;
+import minesweeperwhiz.data.*;
+import minesweeperwhiz.ui.UIMineSweeperWhizApp;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -20,20 +20,20 @@ public class Solver extends Thread {
 	public Solver(Board board) {
 		this.board = board;
 		
-		int seed = MineSolverParameters.getInstance().solverSeed;
+		int seed = MineSweeperWhizParameters.getInstance().solverSeed;
 		System.out.println("params.solverSeed=" + seed + ";");
 		rand = new Random(seed);
 		setName("Solver: " + seed);
 	}
 	public void run() {
-		MineSolverParameters params = MineSolverParameters.getInstance();
+		MineSweeperWhizParameters params = MineSweeperWhizParameters.getInstance();
 		try {
 			while (!dead && !board.isWon() && !board.isLost()) {
 				if (params.showUI && params.thinkTime > 0) {
 					Thread.sleep(params.thinkTime);
 				}
 				think();
-				UIMineSolverApp.getInstance().refresh(false, board);
+				UIMineSweeperWhizApp.getInstance().refresh(false, board);
 			}
 		} catch (InterruptedException e) {
 			e.printStackTrace();
@@ -96,7 +96,7 @@ public class Solver extends Thread {
 		// Third pass
 		if (!doneThinking) {
 			// For now, let's keep it faster and not do this until the end
-			if (board.getCells(false, false, null, null).size() <= MineSolverParameters.getInstance().checkCombinationsAt) {
+			if (board.getCells(false, false, null, null).size() <= MineSweeperWhizParameters.getInstance().checkCombinationsAt) {
 				if (checkMineCombinations()) {
 					doneThinking = true;
 				}
@@ -304,7 +304,7 @@ public class Solver extends Thread {
 	
 	private void makeGuess(ArrayList<Cell> coveredCells, ArrayList<Cell> uncoveredNonZeroCells) {
 		
-		MineSolverParameters params = MineSolverParameters.getInstance();
+		MineSweeperWhizParameters params = MineSweeperWhizParameters.getInstance();
 		
 		float minProbability = 100.0f; // probability of hitting a mine
 		ArrayList<Cell> surroundingBestChanceCell = null;

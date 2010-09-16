@@ -1,8 +1,8 @@
-package minesolver;
+package minesweeperwhiz;
 
 import java.util.Random;
 
-public class MineSolverParameters {
+public class MineSweeperWhizParameters {
 
 	// UI parameters
 	public boolean showUI = true;
@@ -30,17 +30,17 @@ public class MineSolverParameters {
 	
 	
 	// Singleton stuff
-	private MineSolverParameters() { }
-	private static MineSolverParameters instance = null;
-	public static MineSolverParameters getInstance() {
+	private MineSweeperWhizParameters() { }
+	private static MineSweeperWhizParameters instance = null;
+	public static MineSweeperWhizParameters getInstance() {
 		if (instance == null) {
-			instance = new MineSolverParameters();
+			instance = new MineSweeperWhizParameters();
 		}
 		return instance;
 	}
 	
-	public static MineSolverParameters createBeginnerParams() {
-		MineSolverParameters params = getInstance();
+	public static MineSweeperWhizParameters createBeginnerParams() {
+		MineSweeperWhizParameters params = getInstance();
 		params.boardWidth = 8;
 		params.boardHeight = 8;
 		params.numMines = 10;
@@ -53,8 +53,8 @@ public class MineSolverParameters {
 		return params;
 	}
 	
-	public static MineSolverParameters createIntermediateParams() {
-		MineSolverParameters params = getInstance();
+	public static MineSweeperWhizParameters createIntermediateParams() {
+		MineSweeperWhizParameters params = getInstance();
 		params.boardWidth = 16;
 		params.boardHeight = 16;
 		params.numMines = 40;
@@ -108,8 +108,8 @@ public class MineSolverParameters {
 		return params;
 	}
 	
-	public static MineSolverParameters createAdvancedParams() {
-		MineSolverParameters params = getInstance();
+	public static MineSweeperWhizParameters createAdvancedParams() {
+		MineSweeperWhizParameters params = getInstance();
 		params.boardWidth = 30;
 		params.boardHeight = 16;
 		params.numMines = 99;

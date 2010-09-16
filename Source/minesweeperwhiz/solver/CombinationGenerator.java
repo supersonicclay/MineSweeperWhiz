@@ -1,4 +1,4 @@
-package minesolver.solver;
+package minesweeperwhiz.solver;
 
 //--------------------------------------
 //Systematically generate combinations.

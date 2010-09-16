@@ -1,4 +1,4 @@
-package minesolver.ui;
+package minesweeperwhiz.ui;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -6,8 +6,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
-import minesolver.MineSolverApp;
-import minesolver.data.Board;
+import minesweeperwhiz.MineSweeperWhizApp;
+import minesweeperwhiz.data.Board;
 
 public class UIGameButton extends JButton implements ActionListener {
 	private static final long serialVersionUID = 1L;
@@ -31,7 +31,7 @@ public class UIGameButton extends JButton implements ActionListener {
 	}
 	
 	public void actionPerformed(ActionEvent e) {
-		MineSolverApp.getInstance().newGame();
+		MineSweeperWhizApp.getInstance().newGame();
 	}
 
 }

@@ -1,8 +1,8 @@
-package minesolver.ui;
+package minesweeperwhiz.ui;
 
 import javax.swing.JPanel;
 import java.awt.GridLayout;
-import minesolver.data.*;
+import minesweeperwhiz.data.*;
 
 public class UIBoard extends JPanel {
 	private static final long serialVersionUID = 1L;

@@ -1,4 +1,4 @@
-package minesolver;
+package minesweeperwhiz;
 
 public interface GameStateCallback {
 

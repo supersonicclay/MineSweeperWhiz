@@ -1,34 +1,34 @@
-package minesolver;
+package minesweeperwhiz;
 
-import minesolver.data.*;
-import minesolver.ui.*;
-import minesolver.solver.*;
+import minesweeperwhiz.data.*;
+import minesweeperwhiz.ui.*;
+import minesweeperwhiz.solver.*;
 
-public class MineSolverApp implements GameStateCallback {
+public class MineSweeperWhizApp implements GameStateCallback {
 
 	private int gamesWon = 0;
 	private int gamesLost = 0;
 	private Solver solver;
 	private Board board;
 
-	private static MineSolverApp instance;
-	public static MineSolverApp getInstance() {
+	private static MineSweeperWhizApp instance;
+	public static MineSweeperWhizApp getInstance() {
 		if (instance == null) {
-			instance = new MineSolverApp();
+			instance = new MineSweeperWhizApp();
 		}
 		return instance;
 	}
 	
-	private MineSolverApp() {
+	private MineSweeperWhizApp() {
 	}	
 	
 	public void newGame() {
 		
-		//MineSolverParameters.createBeginnerParams();
-		MineSolverParameters.createIntermediateParams();
-		//MineSolverParameters.createAdvancedParams();
+		//MineSweeperWhizParameters.createBeginnerParams();
+		MineSweeperWhizParameters.createIntermediateParams();
+		//MineSweeperWhizParameters.createAdvancedParams();
 		
-		MineSolverParameters params = MineSolverParameters.getInstance();
+		MineSweeperWhizParameters params = MineSweeperWhizParameters.getInstance();
 		
 		board = new Board(this);
 
@@ -37,7 +37,7 @@ public class MineSolverApp implements GameStateCallback {
 			solver.start();
 		}
 
-		UIMineSolverApp.getInstance().refresh(true, board);
+		UIMineSweeperWhizApp.getInstance().refresh(true, board);
 	}
 	
 	public void gameWon() {
@@ -51,10 +51,10 @@ public class MineSolverApp implements GameStateCallback {
 	}
 	
 	private void afterGame() {
-		MineSolverParameters params = MineSolverParameters.getInstance();
-		UIMineSolverApp.getInstance().refresh(false, board);
+		MineSweeperWhizParameters params = MineSweeperWhizParameters.getInstance();
+		UIMineSweeperWhizApp.getInstance().refresh(false, board);
 		printStats();
-		UIMineSolverApp.getInstance().updateProgress(gamesWon + gamesLost);
+		UIMineSweeperWhizApp.getInstance().updateProgress(gamesWon + gamesLost);
 		if (gamesWon + gamesLost < params.testRuns && params.autoNewGame) {
 			if (params.showUI && params.retrospectTime > 0) {
 				try {
@@ -81,11 +81,11 @@ public class MineSolverApp implements GameStateCallback {
 
 	
 	public static void main(String[] args) {
-		System.out.println("MineSolver");
+		System.out.println("minesweeperwhiz");
 		
-		MineSolverApp.getInstance();
-		UIMineSolverApp.getInstance();
-		MineSolverApp.getInstance().newGame();
+		MineSweeperWhizApp.getInstance();
+		UIMineSweeperWhizApp.getInstance();
+		MineSweeperWhizApp.getInstance().newGame();
 	}
 
 }

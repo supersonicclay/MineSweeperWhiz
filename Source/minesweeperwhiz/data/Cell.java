@@ -1,4 +1,4 @@
-package minesolver.data;
+package minesweeperwhiz.data;
 
 public class Cell {
 

@@ -1,8 +1,8 @@
-package minesolver.ui;
+package minesweeperwhiz.ui;
 
 import javax.swing.JLabel;
 
-import minesolver.data.Board;
+import minesweeperwhiz.data.Board;
 
 public class UIMineTotals extends JLabel {
 	private static final long serialVersionUID = 1L;
