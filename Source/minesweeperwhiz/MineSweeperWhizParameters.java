@@ -16,7 +16,7 @@ public class MineSweeperWhizParameters {
 	public int numMines;
 
 	// Solver parameters
-	public boolean useSolver = true;
+	public boolean useSolver = false;
 	public int testRuns = 5;
 	public boolean autoNewGame = true;
 	public int retrospectTime = 3000; // only pauses if showing UI
