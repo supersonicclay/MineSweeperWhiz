@@ -5,7 +5,7 @@ import java.util.Random;
 public class MineSolverParameters {
 
 	// UI parameters
-	public boolean showUI = false;
+	public boolean showUI = true;
 	public int windowWidth = 730;
 	public int windowHeight = 730;
 	public boolean showMinesCheat = false;
@@ -17,10 +17,10 @@ public class MineSolverParameters {
 
 	// Solver parameters
 	public boolean useSolver = true;
-	public int testRuns = 5000;
+	public int testRuns = 5;
 	public boolean autoNewGame = true;
-	public int retrospectTime = 2000; // only pauses if showing UI
-	public int thinkTime = 200; // only pauses if showing UI
+	public int retrospectTime = 3000; // only pauses if showing UI
+	public int thinkTime = 500; // only pauses if showing UI
 	public int checkCombinationsAt = 20;
 	public boolean showGuessingMessage = false;
 	
