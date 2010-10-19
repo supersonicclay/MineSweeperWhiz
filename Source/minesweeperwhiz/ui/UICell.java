@@ -22,7 +22,7 @@ public class UICell extends JButton implements MouseListener {
 	
 	public void styleButton() {
 
-		setFont(new Font(null, Font.BOLD, 12));
+		setFont(new Font(null, Font.BOLD, 11));
 		setBackground(Color.LIGHT_GRAY);
 		
 		if (cell.isUncovered()) {

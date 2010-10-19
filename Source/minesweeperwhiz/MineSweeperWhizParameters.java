@@ -17,8 +17,8 @@ public class MineSweeperWhizParameters {
 
 	// Solver parameters
 	public boolean useSolver = false;
-	public int testRuns = 5;
-	public boolean autoNewGame = true;
+	public Integer testRuns = null;
+	public boolean autoNewGame = false;
 	public int retrospectTime = 3000; // only pauses if showing UI
 	public int thinkTime = 500; // only pauses if showing UI
 	public int checkCombinationsAt = 20;
@@ -47,9 +47,6 @@ public class MineSweeperWhizParameters {
 		params.windowWidth = 400;
 		params.windowHeight = 400;
 		
-		params.boardSeed = new Random().nextInt();
-		params.solverSeed = new Random().nextInt();
-
 		return params;
 	}
 	
@@ -58,9 +55,6 @@ public class MineSweeperWhizParameters {
 		params.boardWidth = 16;
 		params.boardHeight = 16;
 		params.numMines = 40;
-
-		params.boardSeed = new Random().nextInt();
-		params.solverSeed = new Random().nextInt();
 
 		/*
 		// Solved
@@ -115,9 +109,6 @@ public class MineSweeperWhizParameters {
 		params.numMines = 99;
 		params.windowWidth = 1300;
 
-		params.boardSeed = new Random().nextInt();
-		params.solverSeed = new Random().nextInt();
-		
 		/*
 		// Almost solved
 		params.boardSeed = 1051698440;

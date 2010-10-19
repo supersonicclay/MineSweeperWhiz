@@ -28,6 +28,7 @@ public class UIMineSweeperWhizApp extends JFrame {
 	private UIMineSweeperWhizApp() {
 
 		if (MineSweeperWhizParameters.getInstance().showUI) {
+			setJMenuBar(new UIMenuBar());
 			uiGameButton = new UIGameButton();
 			getContentPane().add(uiGameButton, BorderLayout.NORTH);
 

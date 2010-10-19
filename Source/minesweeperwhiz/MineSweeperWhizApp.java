@@ -1,5 +1,7 @@
 package minesweeperwhiz;
 
+import java.util.Random;
+
 import minesweeperwhiz.data.*;
 import minesweeperwhiz.ui.*;
 import minesweeperwhiz.solver.*;
@@ -20,31 +22,36 @@ public class MineSweeperWhizApp implements GameStateCallback {
 	}
 	
 	private MineSweeperWhizApp() {
+		MineSweeperWhizParameters.createIntermediateParams();
 	}	
 	
 	public void newGame() {
 		
-		//MineSweeperWhizParameters.createBeginnerParams();
-		MineSweeperWhizParameters.createIntermediateParams();
-		//MineSweeperWhizParameters.createAdvancedParams();
-		
 		MineSweeperWhizParameters params = MineSweeperWhizParameters.getInstance();
 		
+		params.boardSeed = new Random().nextInt();
+		params.solverSeed = new Random().nextInt();
+
 		board = new Board(this);
 
 		if (params.useSolver) {
 			solver = new Solver(board);
 			solver.start();
 		}
+		else {
+			solver = null;
+		}
 
 		UIMineSweeperWhizApp.getInstance().refresh(true, board);
 	}
 	
+	@Override
 	public void gameWon() {
 		++gamesWon;
 		afterGame();
 	}
 
+	@Override
 	public void gameLost() {
 		++gamesLost;
 		afterGame();
@@ -55,7 +62,7 @@ public class MineSweeperWhizApp implements GameStateCallback {
 		UIMineSweeperWhizApp.getInstance().refresh(false, board);
 		printStats();
 		UIMineSweeperWhizApp.getInstance().updateProgress(gamesWon + gamesLost);
-		if (gamesWon + gamesLost < params.testRuns && params.autoNewGame) {
+		if (params.testRuns != null && gamesWon + gamesLost < params.testRuns && params.autoNewGame) {
 			if (params.showUI && params.retrospectTime > 0) {
 				try {
 					Thread.sleep(params.retrospectTime);
@@ -65,7 +72,7 @@ public class MineSweeperWhizApp implements GameStateCallback {
 			}
 			newGame();
 		}
-		else if (gamesWon + gamesLost >= params.testRuns) {
+		else if (params.testRuns != null && gamesWon + gamesLost >= params.testRuns) {
 			System.exit(0);
 		}
 	}
