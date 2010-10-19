@@ -26,10 +26,6 @@ public class UIMenuBar extends JMenuBar implements ActionListener {
 	JRadioButtonMenuItem difficultyIntermediate;
 	JRadioButtonMenuItem difficultyAdvanced;
 	
-	JMenu solverMenu;
-	JMenuItem solverStart;
-	JMenuItem solverStop;
-	
 	public UIMenuBar() {		
 		// Game Menu
 		gameMenu = new JMenu("Game");
@@ -99,12 +95,6 @@ public class UIMenuBar extends JMenuBar implements ActionListener {
 		}
 		else if (source == difficultyAdvanced) {
 			setAdvanced();
-		}
-		else if (source == solverStart) {
-			startSolver();
-		}
-		else if (source == solverStop) {
-			stopSolver();
 		}
 	}
 	
