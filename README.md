@@ -3,7 +3,7 @@
 
 Minesweeper clone, except with one important addition:
 
-- Watch "The Whiz" solve Mine Sweeper puzzles
+- Watch "The Whiz" solve Minesweeper puzzles
 
 ![Mine Sweeper Whiz](https://raw.github.com/claycephus/MineSweeperWhiz/master/Resources/FlagDependency.png "The Whiz")
 
